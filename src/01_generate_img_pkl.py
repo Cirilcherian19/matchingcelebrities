@@ -42,6 +42,7 @@ def generate_data_pickle_file(config_path,params_path):
     for actor in actors:
         for file in os.listdir(os.path.join(data_path,actor)):
             filenames.append(os.path.join(data_path,actor,file))
+    
 
     logging.info(f'Total actress are: {len(actors)}')
     logging.info(f'Total actress images: {len(filenames)}')
