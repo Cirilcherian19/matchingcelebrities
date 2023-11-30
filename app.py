@@ -53,9 +53,9 @@ filenames = pickle.load(open(pickle_file,'rb'))
 # save_uploaded_image
 def save_uploaded_image(uploaded_image):
     try:
-        create_directory(dirs=[uploadn_path])
+        create_directory(dirs=[upload_path])
 
-        with open(os.path.join(uploadn_path,uploaded_image.name),'wb') as f:
+        with open(os.path.join(upload_path,uploaded_image.name),'wb') as f:
             f.write(uploaded_image.getbuffer())
         return True
     except:
@@ -108,7 +108,7 @@ if uploaded_image is not None:
         display_image = Image.open(uploaded_image)
 
         # extract the features
-        features = extract_features(os.path.join(uploadn_path,uploaded_image.name),model,detector)
+        features = extract_features(os.path.join(upload_path,uploaded_image.name),model,detector)
         # recommend
         index_pos = recommend(feature_list,features)
         predicted_actor = " ".join(filenames[index_pos].split('\\')[1].split('_'))
